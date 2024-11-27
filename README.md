@@ -12,9 +12,4 @@
 | Rox | GTM Solutions | Human augmentation focused agents | • GTM strategy support<br>• Human capability enhancement<br>• Augmentation philosophy |
 | Paradigm | Multi-Agent Platform | Coordinated AI agent ecosystem | • Multiple specialized agents<br>• Comprehensive solution approach<br>• Complex problem handling |
 
-## Special Comparison: Rox vs 11x
 
-| Platform | Philosophy | Approach |
-|---|---|---|
-| Rox | Human Enhancement | Aims to make the best better through augmentation |
-| 11x | Automation | Focuses on replacing human roles with AI |
