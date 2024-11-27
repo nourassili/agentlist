@@ -5,7 +5,7 @@
 | CustomGPTs | General AI | Customizable GPT models for specific tasks | • Task-specific training<br>• Domain customization<br>• Flexible implementation |
 | Jasper AI | Content Creation | AI writing and content generation platform | • Marketing focus<br>• Copywriting capabilities<br>• Multi-format content generation |
 | Crew AI | Custom AI | AI workflows | • Multi-agent coordination<br>• Complex task handling<br>• Collaborative problem solving |
-| Magai | Creative AI | Multimodal platform | • Creative tasks<br>• Unique solution approaches<br>• Innovation focus |
+| Magai | Creative AI | Multimodal platform | • Access al modals in one place <br> |
 | Salesforce Agents | Enterprise CRM | CRM-integrated AI solutions | • Sales automation<br>• CRM integration<br>• Business process optimization |
 | AgentGPT (Reworkd) | Open Source | Autonomous AI agent platform | • Task chaining<br>• Open source flexibility<br>• Custom deployment options |
 | Glean | Enterprise Search | Internal knowledge search solution | • Knowledge discovery<br>• Information optimization<br>• Enterprise search capabilities |
