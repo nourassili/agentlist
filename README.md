@@ -1,4 +1,4 @@
-# AI Agents Comparison
+# AI Agents 
 
 This document provides an overview of different AI agents, their categories, descriptions, key features, and useful links.
 
