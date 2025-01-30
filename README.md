@@ -1,4 +1,4 @@
-# AI Agents 
+# AI Agents
 
 This document provides an overview of different AI agents, their categories, descriptions, key features, and useful links.
 
@@ -20,6 +20,9 @@ This document provides an overview of different AI agents, their categories, des
 | **LangChain** | AI Development Framework | Modular framework for AI-powered applications | - Memory-augmented AI  <br> - Multi-modal capabilities  <br> - Chain-of-thought reasoning | [LangChain](https://www.langchain.com/) |
 | **Chatbot UI** | Chat Interface | Open-source chatbot interface for AI interactions | - UI customization  <br> - Multi-model support  <br> - API integration | [Chatbot UI](https://github.com/mckaywrigley/chatbot-ui) |
 | **SuperAGI** | AI Agent Framework | Advanced multi-agent automation system | - AI memory management  <br> - Self-learning capabilities  <br> - Multi-agent coordination | [SuperAGI](https://superagi.com/) |
+| **Devin AI** | Autonomous Developer | AI software engineer for end-to-end coding tasks | - Writes, debugs, and deploys code  <br> - Fully autonomous software development  <br> - Continuous learning and self-improvement | [Devin AI](https://cognition-labs.com/) |
+| **FlowGPT** | AI Model Repository | Community-driven AI model sharing platform | - Extensive AI model collection  <br> - User-driven AI contributions  <br> - Custom AI deployments | [FlowGPT](https://flowgpt.com/) |
+| **Mistral AI** | LLM Provider | High-performance open-weight language models | - State-of-the-art LLMs  <br> - Open-source flexibility  <br> - Efficient inference models | [Mistral AI](https://mistral.ai/) |
 
 ## 📌 How to Contribute
 If you know of other interesting AI agent platforms, feel free to submit a pull request!
