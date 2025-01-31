@@ -1,6 +1,6 @@
-# AI Agents Overview for Startup Builders
+# AI Agents Overview 
 
-Building a startup in today’s market means **moving fast** and **innovating continuously**. AI agents can help you:
+Working on passion projects in today’s market means **moving fast** and **innovating continuously**. AI agents can help you:
 
 - **Prototype Quickly**: Test your core ideas without having to code everything from scratch.  
 - **Automate Mundane Tasks**: Free your team to focus on strategic growth rather than repetitive processes.  
