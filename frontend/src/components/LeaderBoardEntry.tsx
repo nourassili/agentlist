@@ -12,6 +12,7 @@ interface LBProps {
   tags: string[];
   valueLikes: number;
   valueComments: number;
+  highlight?: boolean;
   projectImag?: string; // string for now
 }
 
@@ -22,19 +23,24 @@ export const LeaderBoardEntry = ({
   tags,
   valueLikes,
   valueComments,
+  highlight = false,
 }: LBProps) => {
   return (
-    <div className="flex items-center justify-between bg-white p-4 rounded-lg hover:bg-gray-100 border border-gray-200">
+    <div
+      className={`group flex items-center justify-between p-4 rounded-lg border border-gray-200 transition 
+        ${highlight ? "bg-gray-100" : "bg-white hover:bg-gray-50"}`}
+    >
       <div className="flex items-start space-x-4">
         <span className="w-12 h-12 flex items-center justify-center rounded-md overflow-hidden bg-gray-300">
           {tempy}
         </span>
 
         <div className="flex flex-col">
-          <span className="text-black font-semibold text-lg">{title}</span>
+          <span className="text-black font-semibold text-lg transition duration-200 group-hover:text-orange-500">
+            {title}
+          </span>{" "}
           <span className="text-gray-600 text-sm">{description}</span>
-
-          <div className="flex space-x-2 text-gray-500 text-xs mt-1">
+          <div className="flex flex-wrap text-gray-500 text-xs mt-1 space-x-1">
             {tags.map((tag, index) => (
               <span key={index}>{index > 0 ? `• ${tag}` : tag}</span>
             ))}
