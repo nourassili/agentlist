@@ -1,11 +1,15 @@
 import { LeaderBoardContainer } from "@/components/LeaderBoardContainer";
 import { WelcomeLB } from "@/components/sections/WelcomeLB";
+import { SignUP } from "@/components/SignUp";
 
 export default function Home() {
   return (
-    <div className="pt-2 px-8">
+    <div className="flex flex-col items-center justify-center min-h-screen ">
       <WelcomeLB />
-      <LeaderBoardContainer />
+      <div>
+        <LeaderBoardContainer />
+      </div>
+      <SignUP />
     </div>
   );
 }

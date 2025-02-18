@@ -2,8 +2,8 @@ import { LeaderBoardEntry } from "./LeaderBoardEntry";
 
 export const LeaderBoardContainer = () => {
   return (
-    <div className="flex flex-col justify-center p-10">
-      <div className="text-black font-bold text-lg md:text-xl mb-4 justify-start">
+    <div className="flex flex-col justify-center w-[1000px] mt-10">
+      <div className="text-black font-bold text-lg md:text-2xl mb-4 justify-start">
         Top Products Launching Today
       </div>
       <div
