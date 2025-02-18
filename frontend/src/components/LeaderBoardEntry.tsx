@@ -1,8 +1,12 @@
 import { MsgUpBox } from "./MsgUpBox";
 import Image from "next/image";
 
-const im = (
+const commentVals = (
   <Image src="comment.svg" alt="message Icon" width={16} height={16} />
+);
+
+const uptickVals = (
+  <Image src="uptick.svg" alt="likes Icon" width={16} height={16} />
 );
 
 interface LBProps {
@@ -49,8 +53,8 @@ export const LeaderBoardEntry = ({
       </div>
 
       <div className="flex space-x-3">
-        <MsgUpBox value={valueComments}>{im}</MsgUpBox>
-        <MsgUpBox value={valueLikes}>{im} </MsgUpBox>
+        <MsgUpBox value={valueComments}>{commentVals}</MsgUpBox>
+        <MsgUpBox value={valueLikes}>{uptickVals} </MsgUpBox>
       </div>
     </div>
   );
