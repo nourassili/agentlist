@@ -1,14 +1,23 @@
-"use client"; 
+/* eslint-disable @typescript-eslint/no-unused-vars */
+"use client";
 
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "@/firebase"; 
+import { db } from "@/firebase";
+import {
+  useReactTable,
+  getCoreRowModel,
+  getFilteredRowModel,
+  ColumnDef,
+  flexRender,
+  filterFns,
+} from "@tanstack/react-table";
 
 type Agent = {
   id: string;
   name: string;
   category: string;
-  datePublished: number;
+  datePublished: string;
   publisher: string;
   upvotes: number;
   description: string;
@@ -18,15 +27,25 @@ type Agent = {
 const AgentList = () => {
   const [agents, setAgents] = useState<Agent[]>([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState<string>("");
 
   useEffect(() => {
     const fetchAgents = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "agents"));
-        const agentData = querySnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data(),
-        })) as Agent[];
+        const agentData = querySnapshot.docs.map((doc) => {
+          const data = doc.data();
+
+          return {
+            id: doc.id,
+            ...data,
+            datePublished: data.datePublished?.seconds
+              ? new Date(data.datePublished.seconds * 1000)
+                  .toISOString()
+                  .split("T")[0]
+              : new Date(data.datePublished).toISOString().split("T")[0],
+          };
+        }) as Agent[];
 
         setAgents(agentData);
       } catch (error) {
@@ -39,32 +58,73 @@ const AgentList = () => {
     fetchAgents();
   }, []);
 
+  console.log(agents);
+
+  const columns: ColumnDef<Agent>[] = [
+    { accessorKey: "name", header: "Name" },
+    { accessorKey: "category", header: "Category" },
+    {
+      accessorKey: "datePublished",
+      header: "Date Published",
+      cell: ({ getValue }) => getValue<string>(),
+    },
+    { accessorKey: "publisher", header: "Publisher" },
+    { accessorKey: "upvotes", header: "Upvotes" },
+    { accessorKey: "website", header: "Website" },
+  ];
+
+  const table = useReactTable({
+    data: agents,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    filterFns: {
+      customSearch: (row, columnId, filterValue) => {
+        const value = row.getValue(columnId) as string;
+        return value.toLowerCase().includes(filterValue.toLowerCase());
+      },
+    },
+    state: { globalFilter: search },
+    onGlobalFilterChange: setSearch,
+    globalFilterFn: filterFns.includesString,
+  });
+
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-2xl font-bold">Agent List</h1>
-      {loading ? (
-        <p>Loading agents...</p>
-      ) : agents.length === 0 ? (
-        <p>No agents found.</p>
-      ) : (
-        <ul className="mt-4">
-          {agents.map(({ id, name, category, publisher, upvotes, website, description }) => (
-            <li key={id} className="p-4 border-b">
-              <h3 className="text-lg font-semibold">{name}</h3>
-              <p>Category: {category}</p>
-              <p>Published by: {publisher}</p>
-              <p>Upvotes: {upvotes}</p>
-              <p>
-                Website:{" "}
-                <a href={website} target="_blank" rel="noopener noreferrer" className="text-blue-500">
-                  {website}
-                </a>
-              </p>
-              <p>Description: {description}</p>
-            </li>
+    <div className="flex p-4 flex-col items-center justify-center mb-28">
+      <input
+        className="border-2 w-[1000px] rounded-xl mt-10 mb-2 p-2"
+        type="text"
+        id="searchTable"
+        placeholder="Search for agents..."
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <table className="w-full border-collapse border">
+        <thead>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr key={headerGroup.id} className="border">
+              {headerGroup.headers.map((header) => (
+                <th key={header.id} className="border p-2">
+                  {flexRender(
+                    header.column.columnDef.header,
+                    header.getContext()
+                  )}
+                </th>
+              ))}
+            </tr>
           ))}
-        </ul>
-      )}
+        </thead>
+        <tbody>
+          {table.getRowModel().rows.map((row) => (
+            <tr key={row.id} className="border">
+              {row.getVisibleCells().map((cell) => (
+                <td key={cell.id} className="border p-2">
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
