@@ -1,9 +1,9 @@
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { initializeApp, getApps } from "firebase/app";
 
-const firebaseConfig = {
-  // your firebase config here
-};
+import { firebaseConfig } from "../firebase"; // Adjust the import path as necessary
+
+
 
 if (!getApps().length) {
   initializeApp(firebaseConfig);
