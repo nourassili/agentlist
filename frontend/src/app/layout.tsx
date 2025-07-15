@@ -1,4 +1,4 @@
-import Footer from "@/components/Footer";
+import Footer from "@/components/sections/Footer";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "AI Agents Directory",
-  description: "Where professionals build and find the best AI agents.",
+  description: "Discover the best AI agents for your use case based on verified user reviews. Updated daily.",
 };
 
 export default function RootLayout({
