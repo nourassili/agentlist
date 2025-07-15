@@ -1,9 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "@/firebase";
 import {
   useReactTable,
   getCoreRowModel,
@@ -12,6 +8,7 @@ import {
   flexRender,
   filterFns,
 } from "@tanstack/react-table";
+import { useState } from "react";
 
 type Agent = {
   id: string;
@@ -24,41 +21,12 @@ type Agent = {
   website: string;
 };
 
-const AgentList = () => {
-  const [agents, setAgents] = useState<Agent[]>([]);
-  const [loading, setLoading] = useState(true);
+interface AgentListProps {
+  agents: Agent[];
+}
+
+const AgentList = ({ agents }: AgentListProps) => {
   const [search, setSearch] = useState<string>("");
-
-  useEffect(() => {
-    const fetchAgents = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "agents"));
-        const agentData = querySnapshot.docs.map((doc) => {
-          const data = doc.data();
-
-          return {
-            id: doc.id,
-            ...data,
-            datePublished: data.datePublished?.seconds
-              ? new Date(data.datePublished.seconds * 1000)
-                  .toISOString()
-                  .split("T")[0]
-              : new Date(data.datePublished).toISOString().split("T")[0],
-          };
-        }) as Agent[];
-
-        setAgents(agentData);
-      } catch (error) {
-        console.error("Firestore fetch error:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchAgents();
-  }, []);
-
-  console.log(agents);
 
   const columns: ColumnDef<Agent>[] = [
     { accessorKey: "name", header: "Name" },
