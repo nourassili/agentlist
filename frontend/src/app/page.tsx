@@ -1,4 +1,5 @@
 import AgentList from "@/components/AgentList";
+
 import { LeaderBoardContainer } from "@/components/LeaderBoardContainer";
 import { WelcomeLB } from "@/components/sections/WelcomeLB";
 import { SignUP } from "@/components/SignUp";
