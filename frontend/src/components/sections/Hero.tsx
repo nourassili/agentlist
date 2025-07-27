@@ -4,7 +4,7 @@ import { Bot, FileText, Cpu, Workflow, Search } from "lucide-react";
 const categories = [
   { icon: Search, label: "All Tools" },
   { icon: Bot, label: "AI Agents" },
-  { icon: FileText, label: "Prompt Libraries", active: true },
+  { icon: FileText, label: "Prompt Library", active: true },
   { icon: Cpu, label: "Model Providers" },
   { icon: Workflow, label: "Agent Workflows" },
 ];
