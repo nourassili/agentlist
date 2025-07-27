@@ -1,19 +1,41 @@
-import AgentList from "@/components/AgentList";
-import { getAgents } from "@/lib/getAgents";
-import { LeaderBoardContainer } from "@/components/LeaderBoardContainer";
-import { Navbar } from "@/components/sections/Navbar";
-import { SignUP } from "@/components/SignUp";
-import { Hero } from "@/components/sections/Hero";
+"use client";
 
-export default async function Home() {
-  const agents = await getAgents(); 
+import { useEffect, useState } from "react";
+import AgentList from "@/components/AgentList";
+import { Hero } from "@/components/sections/Hero";
+import { Navbar } from "@/components/sections/Navbar";
+import { getAgents } from "@/lib/getAgents";
+import { SignUP } from "@/components/SignUp";
+import { LeaderBoardContainer } from "@/components/LeaderBoardContainer";
+
+export default function HomePage() {
+  const [agents, setAgents] = useState([]);
+  const [search, setSearch] = useState("");
+  const [activeCategory, setActiveCategory] = useState("All Tools");
+
+  useEffect(() => {
+    const fetchAgents = async () => {
+      const res = await getAgents();
+      setAgents(res);
+    };
+    fetchAgents();
+  }, []);
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen space-y-6">
+    <>
       <Navbar />
-      <Hero />
-      <LeaderBoardContainer />
-      <SignUP />
-      <AgentList agents={agents} />
-    </div>
+      <main className="mt-10 flex flex-col items-center justify-center space-y-12 px-4">
+        <Hero
+          search={search}
+          setSearch={setSearch}
+          activeGroup={activeCategory}
+          setActiveGroup={setActiveCategory}
+        />
+
+        <SignUP />
+        <AgentList agents={agents} search={search} />
+        <LeaderBoardContainer />
+      </main>
+    </>
   );
 }

@@ -3,21 +3,21 @@ import { Globe } from 'lucide-react'; // or swap with another icon if preferred
 
 export const Navbar = () => {
   return (
-    <header className="w-full bg-white border-b shadow-sm py-4">
+    <header className="w-full bg-white py-4">
       {/* CONTENT WRAPPER: centers all navbar content and limits max width */}
       <div className="max-w-7xl mx-auto px-8 flex justify-between items-center text-green-900 font-medium">
         
         {/* LEFT: Logo + Brand Name */}
         <div className="flex items-center gap-2">
-          <span className="text-2xl">🌱</span>
+          <img src="/logo.png" alt="logo" className="w-12 h-12 object-contain" />
           <span className="text-xl font-semibold">AgentList</span>
         </div>
 
         {/* CENTER: Nav Links */}
         <nav className="hidden md:flex gap-6 text-sm">
           <a href="/Newsletter" className="font-semibold hover:text-green-700">Newsletter</a>
-          <a href="/AgentRequest" className="font-semibold hover:text-green-700">Agent Request</a>
-          <a href="/AgentSubmission" className="font-semibold hover:text-green-700">Agent Submission</a>
+          <a href="/AgentRequest" className="font-semibold hover:text-green-700"> Request</a>
+          <a href="/AgentSubmission" className="font-semibold hover:text-green-700"> Submit</a>
           <a href="/About" className="font-semibold hover:text-green-700">About</a>
         </nav>
 
