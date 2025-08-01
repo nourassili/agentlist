@@ -18,11 +18,7 @@ const groups = [
 const categoriesByGroup: Record<string, string[]> = {
   "All Tools": ["Popular", "Trending", "Open Source", "Free", "Paid", "New"],
   "AI Agents": [
-    "CHATBOT", "ASSISTANT", "CUSTOMER SUPPORT", "RESEARCH", "CONTENT CREATION",
-    "EMAIL", "INTEGRATIONS", "AUTOMATION", "SOCIAL MEDIA", "SALES",
-    "MARKETING", "WRITING", "GPT", "CHATGPT", "ANALYSIS",
-    "CODING", "WEBSITES", "PRODUCTIVITY", "PERSONAL ASSISTANT"
-  ],
+    "ASSISTANT", "CUSTOMER SUPPORT", "RESEARCH", "CONTENT CREATION", "SOCIAL MEDIA", "SALES",  "MARKETING", "WRITING", "ANALYSIS", "CODING", "WEBSITES", "PRODUCTIVITY", "PERSONAL ASSISTANT"],
   "Prompt Library": [
     "MARKETING", "EMAILS", "UX WRITING", "CODE GEN", "CREATIVE", "PERSONA"
   ],
