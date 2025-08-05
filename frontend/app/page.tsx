@@ -1,15 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import AgentList from "@/components/AgentList";
-import { Hero } from "@/components/sections/Hero";
-import { Navbar } from "@/components/sections/Navbar";
-import { getAgents } from "@/lib/getAgents";
-import { SignUP } from "@/components/SignUp";
-import { LeaderBoardContainer } from "@/components/LeaderBoardContainer";
+import AgentList from "../components/AgentList";
+import { Hero } from "../components/sections/Hero";
+import { Navbar } from "../components/sections/Navbar";
+import { getAgents } from "../lib/getAgents";
+import { SignUP } from "../components/SignUp";
+import { LeaderBoardContainer } from "../components/LeaderBoardContainer";
+import { Agent } from "../types/Agent";
+
 
 export default function HomePage() {
-  const [agents, setAgents] = useState([]);
+  const [agents, setAgents] = useState<Agent[]>([]);
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All Tools");
 
