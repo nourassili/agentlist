@@ -7,10 +7,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.21",
     "firebase": "^12.0.0",
     "lucide-react": "^0.536.0",
     "next": "^14.0.0",
+    "postcss": "^8.5.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^4.1.11"
   }
 }
