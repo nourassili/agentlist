@@ -32,8 +32,7 @@ export default function HomePage() {
           setSearch={setSearch}
           activeGroup={activeCategory}
           setActiveGroup={setActiveCategory}
-        />
-
+        /> 
         <SignUP />
         <AgentList agents={agents} search={search} />
         <LeaderBoardContainer />
